@@ -12,6 +12,7 @@
   acknowledgment: [],
   show-list-of-figure: true,
   show-list-of-tables: true,
+  show-appendix-table-contents: true,
   body,
 ) = {
   // Document metadata
@@ -21,11 +22,15 @@
   // paragraph settings
   set par(justify: true, spacing: 1.5em)
   // page settings
-  set page(paper: paper-size, margin: (right: 2.54cm, left: 2.54cm, top: 2.54cm, bottom: 2.54cm))
+  set page(
+    paper: paper-size,
+    margin: (right: 2.54cm, left: 2.54cm, top: 2.54cm, bottom: 2.54cm),
+    number-align: bottom + right,
+  )
   // Equations settings
   set math.equation(numbering: "(1)")
   // Headings settings
-  set heading(numbering: "1.1")
+  set heading(numbering: "1.1", supplement: [Chapter])
   show heading.where(level: 1): it => { pagebreak(weak: true); it }
   show heading: set block(below: 2.5%)
   // Hide empty outlines
@@ -82,8 +87,11 @@
     pagebreak(weak: true)
   }
 
+  set page(numbering: "I", number-align: bottom + right)
+  counter(page).update(1)
+
   // Table of contents.
-  outline(title: [Table of Contents], depth: 3, indent: auto)
+  outline(title: [Table of Contents], depth: 3, indent: auto, target: heading.where(supplement: [Chapter]))
 
   // List of figures.
   if show-list-of-figure {
@@ -94,6 +102,10 @@
   if show-list-of-tables {
     outline(title: [List of Tables], target: figure.where(kind: table))
   }
+
+  if show-appendix-table-contents {
+    outline(target: heading.where(supplement: [Appendix]), title: [Appendix])
+  }
   // Content page break.
   pagebreak(weak: true)
 
@@ -101,5 +113,11 @@
   set page(numbering: "1", number-align: bottom + right)
   counter(page).update(1)
 
+  body
+}
+
+#let appendix(body) = {
+  set heading(numbering: "A", supplement: [Appendix])
+  counter(heading).update(0)
   body
 }

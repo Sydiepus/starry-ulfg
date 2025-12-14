@@ -1,4 +1,4 @@
-#import "../lib.typ": ulfg-report
+#import "../lib.typ": ulfg-report, appendix
 
 #show: ulfg-report.with(
   document-title: "Report - Your Name",
@@ -22,3 +22,9 @@
 
 = Conclusion
 #lorem(180)
+
+
+#show: appendix
+
+= Attestation
+#lorem(120)
