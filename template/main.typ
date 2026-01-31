@@ -1,10 +1,10 @@
-#import "../lib.typ": ulfg-report, appendix
+#import "@preview/starry-ulfg:0.1.0": starry-ulfg, appendix
 
-#show: ulfg-report.with(
+#show: starry-ulfg.with(
   document-title: "Report - Your Name",
   candidates: ("Your Name",),
   title: "Report",
-  course: "Stage en Entreprise I",
+  course: "Course Name",
   year: [2025/2026],
   professors: ("Professor [Name]",),
   acknowledgment: [#lorem(180)],

@@ -1,4 +1,4 @@
-#let ulfg-report(
+#let starry-ulfg(
   document-title: "Lab Report",
   title: [Lab Report],
   course: none,
