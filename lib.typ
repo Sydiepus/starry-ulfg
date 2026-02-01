@@ -42,7 +42,7 @@
     #place(top + left, image("assets/ulfg-logo.jpg", height: 10%))
     #let offset = 15%
     #for logo in logos {
-      place(top + left, dx: offset, image(logo, height: 10%))
+      place(top + left, dx: offset, logo)
       offset = offset + 15%
     }
     // Title

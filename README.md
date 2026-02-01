@@ -16,7 +16,7 @@ This template exports the `starry-ulfg` function with the following named argume
 - `title`: The report's title as content (displayed on cover page).
 - `course`: The course name as string or `none`. Optional.
 - `year`: Current academic year as content. Defaults to `[2025/2026]`.
-- `logos`: Additional logos to add as array of image path strings. Defaults to `()`.
+- `logos`: Additional logos to add as array of image content. Defaults to `()`.
 - `candidates`: Candidate/student names as array of strings.
 - `professors`: Professor/instructor names as array of strings. Defaults to `()`.
 - `paper-size`: Paper size as string (e.g., `"a4"`, `"us-letter"`). Defaults to `"a4"`.
