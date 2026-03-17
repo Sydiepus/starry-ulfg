@@ -10,6 +10,7 @@
   lang: "en",
   preface: [],
   acknowledgment: [],
+  show-table-of-contents: true,
   show-list-of-figure: true,
   show-list-of-tables: true,
   show-appendix-table-contents: true,
@@ -33,6 +34,8 @@
   set heading(numbering: "1.1", supplement: [Chapter])
   show heading.where(level: 1): it => { pagebreak(weak: true); it }
   show heading: set block(below: 2.5%)
+  // table settings
+  show table: set par(justify: false)
   // Hide empty outlines
   show outline: it => if query(it.target) != () { it }
   // Cover Page
@@ -75,6 +78,9 @@
   ]
   pagebreak()
 
+  set page(numbering: "I", number-align: bottom + right)
+  counter(page).update(1)
+
   if preface != [] {
     align(center)[#text(16pt, strong([Preface]))]
     preface
@@ -87,11 +93,10 @@
     pagebreak(weak: true)
   }
 
-  set page(numbering: "I", number-align: bottom + right)
-  counter(page).update(1)
-
   // Table of contents.
-  outline(title: [Table of Contents], depth: 3, indent: auto, target: heading.where(supplement: [Chapter]))
+  if show-table-of-contents {
+    outline(title: [Table of Contents], depth: 3, indent: auto, target: heading.where(supplement: [Chapter]))
+  }
 
   // List of figures.
   if show-list-of-figure {

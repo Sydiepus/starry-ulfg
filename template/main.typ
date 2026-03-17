@@ -1,4 +1,4 @@
-#import "@preview/starry-ulfg:0.1.0": starry-ulfg, appendix
+#import "@preview/starry-ulfg:0.2.0": starry-ulfg, appendix
 
 #show: starry-ulfg.with(
   document-title: "Report - Your Name",
